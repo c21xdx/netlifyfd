@@ -4,7 +4,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "129.146.244.132:8085/:splat"
+  to = "http://129.146.244.132:8085/:splat"
   host = "nlf01.p.dnsabr.com"
   status = 200
   force = true
