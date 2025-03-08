@@ -4,6 +4,6 @@
 
 [[redirects]]
   from = "/*"
-  to = "http://ui.app.linkpc.net/:splat"
+  to = "http://ui.app.linkpc.net:30520//:splat"
   status = 200
   force = true
