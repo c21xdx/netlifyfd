@@ -3,7 +3,7 @@
   publish = "."
 
 [[redirects]]
-  from = "/wsblog"
-  to = "http://ui.app.linkpc.net:30520/wsblog"
+  from = "/xblog"
+  to = "http://ui.app.linkpc.net/xblog"
   status = 200
   force = true
