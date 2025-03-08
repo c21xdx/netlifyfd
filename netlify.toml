@@ -2,6 +2,13 @@
   command = "echo 'No build command required.'"
   publish = "."
 
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "*"
+    Access-Control-Allow-Methods = "*"
+
 [[redirects]]
   from = "/*"
   to = "http://129.146.244.132:8085/:splat"
