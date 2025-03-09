@@ -1,5 +1,2 @@
-[[redirects]]
-  from = "/*"
-  to = "http://129.146.244.132:8085/:splat"
-  status = 200
-  force = true
+[[edge_handlers]]
+handler = "netlify/edge-functions.js"
