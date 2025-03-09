@@ -29,8 +29,8 @@ export default async (request: Request) => {
       console.log('请求体:', body);
 
       // 转发到目标服务器
-      console.log('转发 POST 请求到 http://129.146.244.132:8085/xblog');
-      const response = await fetch('http://129.146.244.132:8085/xblog', {
+      console.log('转发 POST 请求到 http://129.146.244.132:8085');
+      const response = await fetch('http://129.146.244.132:8085/', {
         method: 'POST',
         headers: request.headers,
         body: request.body,
