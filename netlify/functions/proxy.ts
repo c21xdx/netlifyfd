@@ -2,8 +2,8 @@
 export default async (request: Request) => {
   const url = new URL(request.url);
 
-  // 从环境变量获取目标 URL，默认值为 http://129.146.244.132:8085
-  const TARGET_URL = process.env.TARGET_URL || 'http://129.146.244.132:8085';
+  // 从环境变量获取目标 URL，默认值为 http://example.com:80
+  const TARGET_URL = process.env.TARGET_URL || 'http://example.com:80';
 
   if (url.pathname.startsWith('/xblog')) {
     try {
