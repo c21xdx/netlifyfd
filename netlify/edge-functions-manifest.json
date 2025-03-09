@@ -2,7 +2,7 @@
   "version": 1,
   "routes": [
     {
-      "path": "/*",  // 拦截所有路径
+      "path": "/*",  // 拦截所有请求
       "function": "proxy"
     }
   ]
