@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "routes": [
+    {
+      "path": "/*",  // 拦截所有路径
+      "function": "proxy"
+    }
+  ]
+}
