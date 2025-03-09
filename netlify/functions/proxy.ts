@@ -1,17 +1,16 @@
+// netlify/edge-functions/proxy.ts
 export default async (request: Request) => {
   const url = new URL(request.url);
 
-  console.log(`--- 新请求 ---`);
-  console.log(`方法: ${request.method}`);
-  console.log(`路径: ${url.pathname}`);
-  console.log('请求头:', Object.fromEntries(request.headers));
+  // 从环境变量获取目标 URL，默认值为 http://129.146.244.132:8085
+  const TARGET_URL = process.env.TARGET_URL || 'http://129.146.244.132:8085';
+  console.log(`反代目标地址: ${TARGET_URL}`);
 
   if (url.pathname.startsWith('/xblog')) {
     try {
-      const targetUrl = `http://129.146.244.132:8085${url.pathname}`;
+      const targetUrl = `${TARGET_URL}${url.pathname}`;
       console.log(`转发请求到: ${targetUrl}`);
 
-      // 直接转发原始请求体（不尝试读取为文本）
       const response = await fetch(targetUrl, {
         method: request.method,
         headers: request.headers,
@@ -19,7 +18,6 @@ export default async (request: Request) => {
         duplex: 'half',
       });
 
-      // 直接返回原始响应体（支持二进制数据）
       return new Response(response.body, {
         status: response.status,
         headers: {
