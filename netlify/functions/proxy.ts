@@ -11,10 +11,7 @@ export default async (request: Request) => {
       const targetUrl = `http://129.146.244.132:8085${url.pathname}`;
       console.log(`转发请求到: ${targetUrl}`);
 
-      const clonedRequest = request.clone();
-      const requestBody = await clonedRequest.text();
-      console.log('请求体:', requestBody);
-
+      // 直接转发原始请求体（不尝试读取为文本）
       const response = await fetch(targetUrl, {
         method: request.method,
         headers: request.headers,
@@ -22,12 +19,8 @@ export default async (request: Request) => {
         duplex: 'half',
       });
 
-      // 读取并记录响应体
-      const responseBody = await response.clone().text();
-      console.log('目标服务器响应状态:', response.status);
-      console.log('目标服务器响应体:', responseBody);
-
-      return new Response(responseBody, {
+      // 直接返回原始响应体（支持二进制数据）
+      return new Response(response.body, {
         status: response.status,
         headers: {
           ...Object.fromEntries(response.headers),
