@@ -1,9 +1,8 @@
 [build]
   functions = "netlify/functions"
 
-[functions]
+[[functions]]
   directory = "netlify/edge-functions"
-    [[functions.functions]]
-      name = "proxy"
-      runtime = "edge-functions"
-      path = "/*"
+  name = "proxy"
+  runtime = "edge-functions"
+  path = "/*"
