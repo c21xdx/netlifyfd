@@ -1,8 +1,21 @@
 [build]
-  functions = "netlify/functions"
+  publish = "public"
+  command = "# no build command"
 
-[[functions]]
-  directory = "netlify/edge-functions"
-  name = "proxy"
-  runtime = "edge-functions"
+[[edge_functions]]
   path = "/*"
+  function = "proxy"
+
+[dev]
+  framework = "#static"
+
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NETLIFY_EDGE_FUNCTIONS = "true"
+
+# 环境变量示例 (需要在Netlify后台设置实际的值)
+[context.production.environment]
+  # TARGET_URL = "https://api.example.com"
+  # ALLOWED_ORIGIN = "https://your-frontend.com"
